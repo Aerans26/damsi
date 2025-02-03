@@ -1,0 +1,126 @@
+<html>
+    <head>
+        <title>Daaamsii</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+        <style>
+            body {
+                background-color: #FFD166;
+                margin: 0;
+                font-family: Arial, sans-serif;
+                text-align: center;
+            }
+            .container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                padding: 20px;
+            }
+            h1 {
+                font-family: 'Great Vibes', cursive;
+                color: #E63946;
+                font-size: 8vw;
+            }
+            .button-container {
+                display: flex;
+                gap: 15px;
+            }
+            button {
+                font-size: 5vw;
+                padding: 10px 15px;
+                border: none;
+                cursor: pointer;
+                border-radius: 10px;
+                transition: 0.3s ease-in-out;
+                position: relative;
+                min-width: 100px;
+                z-index: 1;
+            }
+            #yesbutton {
+                background-color: #FF477E;
+                color: white;
+                font-family: 'Great Vibes', cursive;
+            }
+            #yesbutton:hover {
+                background-color: #D93A67;
+            }
+            #no {
+                background-color: #999;
+                color: white;
+            }
+            .gif-container img {
+                width: 50vw;
+                max-width: 250px;
+            }
+            .love-message {
+                display: none;
+                text-align: center;
+                margin-top: 20px;
+            }
+            .love-message h2 {
+                font-family: 'Italic', cursive;
+                color: #E63946;
+                font-size: 6vw;
+            }
+            .love-message img {
+                width: 50vw;
+                max-width: 300px;
+                margin-top: 10px;
+            }
+
+            @media (max-width: 600px) {
+                .button-container {
+                    flex-direction: column;
+                    gap: 10px;
+                }
+                button {
+                    font-size: 6vw;
+                    min-width: 120px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="gif-container">
+                <img src="https://media.tenor.com/xxPgBuwmddQAAAAj/cat.gif" alt="Cute Valentine GIF">
+            </div>
+            <h1 id="question">Will you be my valentine, Dams?</h1>
+            <div class="button-container" id="buttons">
+                <button id="yesbutton">Yes</button>
+                <button id="no">No</button>
+            </div>
+
+            <!-- New section for "I LOVE YOU" -->
+            <div class="love-message" id="loveMessage">
+                <h2>YAAAAYYYY!! I LOVE YOU BABY! SEE YOU SOON! ❤️</h2>
+                <img src="https://media.tenor.com/l24xxsX28dkAAAAj/bug-cat.gif" alt="Love GIF">
+            </div>
+        </div>
+
+        <script>
+            // Event listener for Yes button
+            document.getElementById("yesbutton").addEventListener("click", function() {
+                document.getElementById("question").style.display = "none";
+                document.getElementById("buttons").style.display = "none";
+                document.getElementById("loveMessage").style.display = "block";
+            });
+
+            // Making the "No" button move only when clicked
+            var b = document.getElementById("no");
+            b.addEventListener("click", change); // Now "No" button moves when clicked
+
+            function change() {
+                var maxX = window.innerWidth - b.offsetWidth - 20; // Prevents going out of screen
+                var maxY = window.innerHeight - b.offsetHeight - 20;
+                var i = Math.random() * maxX;
+                var j = Math.random() * maxY;
+                b.style.position = "absolute";
+                b.style.left = i + "px";
+                b.style.top = j + "px";
+            }
+        </script>
+    </body>
+</html>
